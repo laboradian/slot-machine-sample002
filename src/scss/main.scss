@@ -9,12 +9,15 @@ footer {
   text-align: right;
 }
 
-.lr-icon {
-  display: inline-block;
+canvas {
+  background-color: #fffbcc;
 }
 
-#screen {
-  background-color: #fffbcc;
+.lr-slot-container {
+  display: flex;
+  & > div {
+    margin-right: 10px;
+  }
 }
 
 .lr-btns,

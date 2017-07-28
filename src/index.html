@@ -26,19 +26,44 @@
   <div class="panel panel-success">
     <div class="panel-heading">スロットマシーン</div>
     <div class="panel-body">
+      <div class="lr-slot-container">
+        <div>
+          <canvas id="screen"></canvas>
+          <div class="lr-btns">
+            <button id="btnStart">スタート</button>
+            <button id="btnStop">ストップ</button>
+          </div>
+          <div class="lr-speed">
+            スピード: <input type="range" id="inputRangeSpeed" min="0" max="19" value="10">
+          </div>
+        </div>
 
-      <canvas id="screen"></canvas>
-      <div class="lr-btns">
-        <button id="btnStart">スタート</button>
-        <button id="btnStop">ストップ</button>
-      </div>
-      <div class="lr-speed">
-        スピード: <input type="range" id="inputRangeSpeed" min="0" max="19" value="10">
+        <div>
+          <canvas id="screen2"></canvas>
+          <div class="lr-btns">
+            <button id="btnStart2">スタート</button>
+            <button id="btnStop2">ストップ</button>
+          </div>
+          <div class="lr-speed">
+            スピード: <input type="range" id="inputRangeSpeed2" min="0" max="19" value="10">
+          </div>
+        </div>
+
+        <div>
+          <canvas id="screen3"></canvas>
+          <div class="lr-btns">
+            <button id="btnStart3">スタート</button>
+            <button id="btnStop3">ストップ</button>
+          </div>
+          <div class="lr-speed">
+            スピード: <input type="range" id="inputRangeSpeed3" min="0" max="19" value="10">
+          </div>
+        </div>
+
       </div>
 
     </div>
   </div>
-
 
   <div class="well">
     <p>ソースコードはこちら</p>
