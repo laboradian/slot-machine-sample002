@@ -29,18 +29,21 @@ console.log('%c 🌈 Laboradian.com 🌈 %c http://laboradian.com ',
 const NUM = 7;
 // 画面に表示する要素数
 const SHOW_MAX = 5;
-// カード画像IDの配列
-const cards = [];
 
-const marginTop = 20;
-const marginBottom = 20;
-const marginLeft = 50;
-const marginRight = 50;
-const cardWidth = 180;
-const cardHeight = 50;
+const MARGIN_TOP = 20;
+const MARGIN_BOTTOM = 20;
+const MARGIN_LEFT = 50;
+const MARGIN_RIGHT = 50;
+const CARD_WIDTH = 180;
+const CARD_HEIGHT = 50;
+
 const btnStart = document.querySelector('#btnStart');
 const btnStop = document.querySelector('#btnStop');
 const speedRange = document.querySelector('#speedRange');
+
+// カード画像IDの配列
+const cards = [];
+
 let spriteLoader;
 let canvas, ctx;
 // requestAnimationFrame の戻り値
@@ -53,8 +56,8 @@ window.onload = () => {
   btnStop.style.display = 'none';
 
   canvas = document.querySelector('#screen');
-  canvas.width = marginLeft + cardWidth + marginRight;
-  canvas.height = marginTop + marginBottom + (cardHeight - 1) * SHOW_MAX + 1;
+  canvas.width = MARGIN_LEFT + CARD_WIDTH + MARGIN_RIGHT;
+  canvas.height = MARGIN_TOP + MARGIN_BOTTOM + (CARD_HEIGHT - 1) * SHOW_MAX + 1;
   ctx = canvas.getContext('2d');
 
   for (i=0; i<NUM; i++) {
@@ -66,11 +69,10 @@ window.onload = () => {
   spriteLoader = new SpriteLoader(cardsImage, ctx, cardsSpriteJson);
 
   cardsImage.addEventListener('load', (/*e*/) => {
-
     let i;
-    const h = cardHeight - 1; // 枠線の分は重ねる
+    const h = CARD_HEIGHT - 1; // 枠線の分は重ねる
     for (i=0; i<SHOW_MAX; i++) {
-      spriteLoader.drawImage(`card${i}`, marginLeft, marginTop + (h * i));
+      spriteLoader.drawImage(`card${i}`, MARGIN_LEFT, MARGIN_TOP + (h * i));
     }
 
   });
@@ -84,6 +86,8 @@ window.onload = () => {
 speedRange.addEventListener('change', (e) => {
   // 1から20になる
   speed = Math.abs(e.currentTarget.value - 20);
+  console.log('e.currentTarget.value', e.currentTarget.value);
+  console.log('speed', speed);
 });
 
 btnStart.addEventListener('click', () => {
@@ -102,10 +106,10 @@ btnStart.addEventListener('click', () => {
           idx -= cards.length;
         }
 
-        const h = cardHeight - 1; // 枠線の分は重ねる
+        const h = CARD_HEIGHT - 1; // 枠線の分は重ねる
         spriteLoader.drawImage(`card${idx}`,
-          marginLeft,
-          marginTop + (h * i)
+          MARGIN_LEFT,
+          MARGIN_TOP + (h * i)
         );
       }
 

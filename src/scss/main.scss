@@ -24,4 +24,8 @@ footer {
   * {
     margin: 10px;
   }
+  > input[type='range'] {
+    width: 90%;
+    margin: 10px auto;
+  }
 }
