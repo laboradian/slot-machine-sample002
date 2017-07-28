@@ -10,10 +10,10 @@ require('file-loader?name=../../dist/[name].[ext]!../index.html');
 
 // 画像のコピー
 require('file-loader?name=../../dist/[name].[ext]!../index.html');
-require('file-loader?name=../../dist/img/[name].[ext]!../img/cards-sprite.png');
+require('file-loader?name=../../dist/img/[name].[ext]!../img/sprite.png');
 
 
-const cardsSpriteJson = require('./cards-sprite.json');
+const spriteJson = require('./sprite.json');
 
 console.log('%c 🌈 Laboradian.com 🌈 %c http://laboradian.com ',
   'background: #2383BF; color: #fff; font-size: 1.4em;',
@@ -64,20 +64,30 @@ window.onload = () => {
     cards.push(`card${i}`);
   }
 
-  const cardsImage = new Image();
+  const spriteImage = new Image();
 
-  spriteLoader = new SpriteLoader(cardsImage, ctx, cardsSpriteJson);
+  spriteLoader = new SpriteLoader(spriteImage, ctx, spriteJson);
 
-  cardsImage.addEventListener('load', (/*e*/) => {
+  spriteImage.addEventListener('load', (/*e*/) => {
     let i;
+
+    // カードの描画
     const h = CARD_HEIGHT - 1; // 枠線の分は重ねる
     for (i=0; i<SHOW_MAX; i++) {
       spriteLoader.drawImage(`card${i}`, MARGIN_LEFT, MARGIN_TOP + (h * i));
     }
 
-  });
-  cardsImage.src = 'img/cards-sprite.png';
+    // 矢印の描画
+    drawArrows();
 
+  });
+  spriteImage.src = 'img/sprite.png';
+
+};
+
+const drawArrows = () => {
+  spriteLoader.drawImage('arrow-left', MARGIN_LEFT - 30, MARGIN_TOP + (CARD_HEIGHT * 2) + 10);
+  spriteLoader.drawImage('arrow-right', MARGIN_LEFT + CARD_WIDTH + 10, MARGIN_TOP + (CARD_HEIGHT * 2) + 10);
 };
 
 //---------------
@@ -119,6 +129,9 @@ btnStart.addEventListener('click', () => {
       } else {
         idx_1st++;
       }
+
+      // 矢印の描画
+      drawArrows();
     }
 
     cnt++;
