@@ -1,0 +1,27 @@
+@import './bootstrap-variables';
+@import './bootstrap-custom';
+
+body {
+  padding: 20px;
+}
+
+footer {
+  text-align: right;
+}
+
+.lr-icon {
+  display: inline-block;
+}
+
+#screen {
+  background-color: #fffbcc;
+}
+
+.lr-btns,
+.lr-speed {
+  text-align: center;
+  width: 280px;
+  * {
+    margin: 10px;
+  }
+}
