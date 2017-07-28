@@ -96,8 +96,6 @@ const drawArrows = () => {
 speedRange.addEventListener('change', (e) => {
   // 1から20になる
   speed = Math.abs(e.currentTarget.value - 20);
-  console.log('e.currentTarget.value', e.currentTarget.value);
-  console.log('speed', speed);
 });
 
 btnStart.addEventListener('click', () => {
