@@ -25,30 +25,27 @@ console.log('%c 🌈 Laboradian.com 🌈 %c http://laboradian.com ',
 // アプリケーション
 //======================
 
-const slot = new Slot({
+(new Slot({
   canvasId: 'screen',
   btnStartId: 'btnStart',
   btnStopId: 'btnStop',
   inputRangeSpeedId: 'inputRangeSpeed',
   spriteJson
-});
-slot.run();
+})).run();
 
-const slot2 = new Slot({
+(new Slot({
   canvasId: 'screen2',
   btnStartId: 'btnStart2',
   btnStopId: 'btnStop2',
   inputRangeSpeedId: 'inputRangeSpeed2',
   spriteJson
-});
-slot2.run();
+})).run();
 
-const slot3 = new Slot({
+(new Slot({
   canvasId: 'screen3',
   btnStartId: 'btnStart3',
   btnStopId: 'btnStop3',
   inputRangeSpeedId: 'inputRangeSpeed3',
   spriteJson
-});
-slot3.run();
+})).run();
 
