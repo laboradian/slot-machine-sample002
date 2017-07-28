@@ -39,7 +39,7 @@ const CARD_HEIGHT = 50;
 
 const btnStart = document.querySelector('#btnStart');
 const btnStop = document.querySelector('#btnStop');
-const speedRange = document.querySelector('#speedRange');
+const inputRangeSpeed = document.querySelector('#inputRangeSpeed');
 
 // カード画像IDの配列
 const cards = [];
@@ -50,7 +50,7 @@ let canvas, ctx;
 let reqId;
 let speed = 10;
 
-window.onload = () => {
+window.addEventListener('load', () => {
   let i;
 
   btnStop.style.display = 'none';
@@ -82,8 +82,7 @@ window.onload = () => {
 
   });
   spriteImage.src = 'img/sprite.png';
-
-};
+});
 
 const drawArrows = () => {
   spriteLoader.drawImage('arrow-left', MARGIN_LEFT - 30, MARGIN_TOP + (CARD_HEIGHT * 2) + 10);
@@ -93,7 +92,7 @@ const drawArrows = () => {
 //---------------
 // スピード調整
 //---------------
-speedRange.addEventListener('change', (e) => {
+inputRangeSpeed.addEventListener('change', (e) => {
   // 1から20になる
   speed = Math.abs(e.currentTarget.value - 20);
 });
